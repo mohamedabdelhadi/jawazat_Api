@@ -1,3 +1,4 @@
 /env
 /__pycache__
 logFile.log
+init_db.py
