@@ -608,7 +608,7 @@ def getstatus():
     return "Robot server is running"  
             
             
-app.view_functions['process_sentence'] = authorize_api_key(app.view_functions['process_sentence'])
+#app.view_functions['process_sentence'] = authorize_api_key(app.view_functions['process_sentence'])
 app.view_functions['survey'] = authorize_api_key(app.view_functions['survey'])
 app.view_functions['get_robot_functions'] = authorize_api_key(app.view_functions['get_robot_functions'])
 app.view_functions['getSurveyQuestions'] = authorize_api_key(app.view_functions['getSurveyQuestions'])
