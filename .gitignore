@@ -2,3 +2,4 @@
 /__pycache__
 logFile.log
 init_db.py
+jsonPayloadConversation.json
