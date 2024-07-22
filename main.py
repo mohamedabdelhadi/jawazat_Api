@@ -600,7 +600,12 @@ def add_robot_usage():
             cursor.close()
         if connection:
             connection.close()
-            
+          
+          
+          
+@app.route('/status', methods=['POST']) 
+def getstatus():
+    return "Robot server is running"  
             
             
 app.view_functions['process_sentence'] = authorize_api_key(app.view_functions['process_sentence'])
