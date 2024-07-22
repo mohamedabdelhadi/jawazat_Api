@@ -24,8 +24,8 @@ logger = logging.getLogger(__name__)
 mqtt_client = connect_mqtt()  # Connect on application startup
 mqtt_client.loop_start()
 
-# qdrant_client = QdrantClient(":memory:")
-# encoder = SentenceTransformer("all-MiniLM-L6-v2")
+qdrant_client = QdrantClient(":memory:")
+encoder = SentenceTransformer("all-MiniLM-L6-v2")
 
 # mqtt = qss_api.qss()
 # mqtt.stop_mic()
@@ -82,7 +82,7 @@ def init_update_collection():
             connection.close()
 
 
-# init_update_collection()
+init_update_collection()
 
 
 def run():
