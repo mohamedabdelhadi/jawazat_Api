@@ -1,0 +1,102 @@
+server {
+server_name conversation.qltyss.com www.conversation.qltyss.com ;
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+
+location /sentence {
+proxy_pass http://127.0.0.1:5656 ;
+proxy_http_version 1.1 ;
+proxy_set_header Upgrade $http_upgrade ;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host ;
+proxy_cache_bypass $http_upgrade ;
+proxy_set_header X-Real-IP $remote_addr ;
+}
+
+location /survey {
+proxy_pass http://127.0.0.1:5656 ;
+proxy_http_version 1.1 ;
+proxy_set_header Upgrade $http_upgrade ;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host ;
+proxy_cache_bypass $http_upgrade ;
+proxy_set_header X-Real-IP $remote_addr ;
+}
+
+location /getRobotFunctions {
+proxy_pass http://127.0.0.1:5656 ;
+proxy_http_version 1.1 ;
+proxy_set_header Upgrade $http_upgrade ;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host ;
+proxy_cache_bypass $http_upgrade ;
+proxy_set_header X-Real-IP $remote_addr ;
+}
+location /getSurveyQuestions{
+proxy_pass http://127.0.0.1:5656 ;
+proxy_http_version 1.1 ;
+proxy_set_header Upgrade $http_upgrade ;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host ;
+proxy_cache_bypass $http_upgrade ;
+proxy_set_header X-Real-IP $remote_addr ;
+}
+location /delete{
+proxy_pass http://127.0.0.1:5656 ;
+proxy_http_version 1.1 ;
+proxy_set_header Upgrade $http_upgrade ;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host ;
+proxy_cache_bypass $http_upgrade ;
+proxy_set_header X-Real-IP $remote_addr ;
+}
+location /add{
+proxy_pass http://127.0.0.1:5656 ;
+proxy_http_version 1.1 ;
+proxy_set_header Upgrade $http_upgrade ;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host ;
+proxy_cache_bypass $http_upgrade ;
+proxy_set_header X-Real-IP $remote_addr ;
+}
+location /update{
+proxy_pass http://127.0.0.1:5656 ;
+proxy_http_version 1.1 ;
+proxy_set_header Upgrade $http_upgrade ;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host ;
+proxy_cache_bypass $http_upgrade ;
+proxy_set_header X-Real-IP $remote_addr ;
+}
+location /add_robot_usage{
+proxy_pass http://127.0.0.1:5656 ;
+proxy_http_version 1.1 ;
+proxy_set_header Upgrade $http_upgrade ;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host ;
+proxy_cache_bypass $http_upgrade ;
+proxy_set_header X-Real-IP $remote_addr ;
+}
+
+# Add the following line to enable underscores in headers
+underscores_in_headers on ;
+
+access_log /var/log/nginx/cruzr-conver-access.log ;
+error_log /var/log/nginx/cruzr-conver-error.log ;
+
+listen 443 ssl ;                                                                # managed by Certbot
+ssl_certificate /etc/letsencrypt/live/conversation.qltyss.com/fullchain.pem ;   # managed by Certbot
+ssl_certificate_key /etc/letsencrypt/live/conversation.qltyss.com/privkey.pem ; # managed by Certbot
+include /etc/letsencrypt/options-ssl-nginx.conf ;                               # managed by Certbot
+ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem ;                                 # managed by Certbot
+
+}
+server {
+if ($host = conversation.qltyss.com) {
+return 301 https://$host$request_uri ;
+}                                      # managed by Certbot
+
+server_name conversation.qltyss.com www.conversation.qltyss.com ;
+listen 80 ;
+return 404 ;                                                      # managed by Certbot
+
+}
