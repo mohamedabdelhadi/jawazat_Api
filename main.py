@@ -603,7 +603,7 @@ def add_robot_usage():
           
           
           
-@app.route('/status', methods=['POST']) 
+@app.route('/status', methods=['GET']) 
 def getstatus():
     return "Robot server is running"  
             
