@@ -1,0 +1,14 @@
+[Unit]
+Description=gunicorn service for cruzr_converstion ya kelaaab
+After=network.target
+
+[Service]
+Type=simple
+User=QSS
+WorkingDirectory=/var/www/html/cruzr_converstion
+Environment="PATH=/var/www/html/cruzr_converstion/venv/bin"
+ExecStart=/var/www/html/cruzr_converstion/venv/bin/gunicorn --bind 0.0.0.0:5656 wis:app
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
